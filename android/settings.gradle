@@ -1,0 +1,3 @@
+rootProject.name = 'MeSee_RN'
+
+include ':app'
