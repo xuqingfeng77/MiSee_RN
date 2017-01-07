@@ -20,14 +20,7 @@ var defaultBackgroundColor = {backgroundColor:'#fff'};
 
 var MenuList = React.createClass({
 
-    //定义控件内容
-    getDefaultProps(){
-        return{
-            click: PropTypes.func,
 
-
-        }
-    },
   getInitialState: function(){
     var data = this.props.data;
     //左侧选择的index
@@ -97,7 +90,7 @@ var MenuList = React.createClass({
       }
       header.push(
         <TouchableOpacity key={"renderlHeaderTouchableOpacity"+txtIndex} style={[styles.flex_1, styles.center]}
-                          onPress={this.headerPress.bind(this, i)}>
+                          onPress={()=>this.headerPress(i)}>
           <Text style={tabStyle}>{i}</Text>
         </TouchableOpacity>
       );

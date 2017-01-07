@@ -9,24 +9,25 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+    Navigator
 } from 'react-native';
-
+import HomeFragment from './js_modules/page/HomeFragment';
+import testPop from './js_modules/test/testPop';
+import testModal from './js_modules/test/testModal';
+import testCalendar from './js_modules/test/testCalendar';
 export default class MeSee_RN extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+        <Navigator
+            initialRoute={{component:HomeFragment}}
+            configureScene={()=>{
+        return Navigator.SceneConfigs.PushFromRight;}
+       }
+            renderScene={(route,navigator)=>{
+        return <route.component navigator={navigator} {...route.params}/>
+        }
+        }/>
     );
   }
 }
