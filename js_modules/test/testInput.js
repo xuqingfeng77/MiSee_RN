@@ -18,9 +18,10 @@ import {View,
 import NavigationBar from '../component/SimpleNavigationBar';
 import testNewView from '../test/testNewView';
 import px2dp from '../util/px2dp';
-import PageComponent from '../page/BackPageComponent'
+import PageComponent from '../page/HomeTab'
+import HomeTab from '../page/HomeTab'
 var { width, height, scale } = Dimensions.get('window');
-export default class testModal extends PageComponent {
+export default class testInput extends PageComponent {
     // 构造函数
     constructor(props) {
         super(props);
@@ -38,8 +39,12 @@ export default class testModal extends PageComponent {
     }
     _rightButtonClick() {
         //
-        this._setModalVisible();
+        // this._setModalVisible();
 
+        this.props.navigator.push({
+            component:HomeTab,
+
+        })
     }
 
     // 显示/隐藏 modal

@@ -29,6 +29,10 @@ export default class Toutiao extends Component {
     }
     _parseData(){
         var tempArr=[];
+        if("error"===this.props.contents){
+            alert('数据异常110');
+            return;
+        }
         if("成功的返回"===JSON.parse(this.props.contents).reason){
             // var temp=resultJson.result;
             var tempResult=JSON.parse(this.props.contents).result;

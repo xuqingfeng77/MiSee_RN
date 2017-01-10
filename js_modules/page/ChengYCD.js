@@ -72,8 +72,8 @@ export default class ChengYCD extends Component {
 
     _parseNetData(data) {
         aa=aa+1;
-        ToastAndroid.show(aa+"", ToastAndroid.SHORT);
-        alert(data);
+        // ToastAndroid.show(aa+"", ToastAndroid.SHORT);
+        // alert(data);
         if ("error" === data) {
             alert("网络异常");
         } else {
@@ -92,10 +92,10 @@ export default class ChengYCD extends Component {
         }
     }
     _fetchData() {
-        // var map = {"word": this.state.txtChengYu, "dtype": "json"};
-        // NetUtil.get(NetURL.chengycd_url, map, this._parseNetData.bind(this));
-        var map={"dtype":"json","word":"差强人意"};
-        NetUtil.get(NetURL.chengycd_url,map,this._parseNetData.bind(this));
+        var map = {"word": this.state.txtChengYu, "dtype": "json"};
+        NetUtil.get(NetURL.chengycd_url, map, this._parseNetData.bind(this));
+        // var map={"dtype":"json","word":"差强人意"};
+        // NetUtil.get(NetURL.chengycd_url,map,this._parseNetData.bind(this));
 
     }
 
@@ -105,24 +105,25 @@ export default class ChengYCD extends Component {
             <View style={styles.container}>
 
                 <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center', marginTop:30}}>
-                    <TextInput style={styles.txtInputStyle} placeholder="请输入需要查询的成语"
+                    <TextInput style={styles.txtInputStyle}   underlineColorAndroid="transparent" placeholder="请输入需要查询的成语"
                                onChange={(event) => this._updateInputTxt(event.nativeEvent.text)}
                     ></TextInput>
                     <TouchableOpacity style={{flexDirection:'row',alignItems:'center'}} activeOpacity={0.3}
-                                    onPress={ this._queryChengy.bind(this)} >
-                        <Text style={{color:'black',fontSize:20,marginLeft:10}}>查询</Text>
+                                      onPressIn={ this._queryChengy.bind(this)} >
+                            <Text style={{color:'black',fontSize:20,marginLeft:10}}>查询</Text>
+
                     </TouchableOpacity>
 
                 </View>
                 {
                     (this.state.isShow ) ? (
-                        <View style={{overflow:'visible',backgroundColor:'red'}}>
+                        <View style={{paddingLeft:50,paddingRight:100,paddingTop:40}}>
                             {
                                 (this.state.chengyInfo.pinyin) ? (
                                     <View style={{flexDirection:'row'}}>
                                         <Text style={[styles.txtHintStyle]}>拼音:</Text>
                                         <Text
-                                            style={[styles.txtStyle]}>{this.state.chengyInfo.pinyin}</Text>
+                                            style={[styles.txtStyle,{marginLeft:10}]}>{this.state.chengyInfo.pinyin}</Text>
                                     </View>
                                 ) : (null)
                             }
@@ -165,8 +166,8 @@ export default class ChengYCD extends Component {
                             {
                                 (this.state.chengyInfo.yinzhengjs) ? ( <View style={{flexDirection:'row'}}>
                                     <Text style={[styles.txtHintStyle]}>引证解释:</Text>
-                                    <View style={{width:100}}>   <Text
-                                        style={[styles.txtStyle,{backgroundColor:'yellow',padding:10}]}>{this.state.chengyInfo.yinzhengjs}</Text></View>
+                                    <Text
+                                        style={[styles.txtStyle,{padding:10}]}>{this.state.chengyInfo.yinzhengjs}</Text>
 
                                 </View>) : (null)
                             }

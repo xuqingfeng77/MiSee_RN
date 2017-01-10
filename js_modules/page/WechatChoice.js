@@ -29,6 +29,10 @@ export default class WechatChoice extends Component {
     }
     _parseData(){
         var tempArr=[];
+        if("error"===this.props.contents){
+            alert('数据异常110');
+            return;
+        }
         if("请求成功"===JSON.parse(this.props.contents).reason){
             // var temp=resultJson.result;
             var tempResult=JSON.parse(this.props.contents).result;

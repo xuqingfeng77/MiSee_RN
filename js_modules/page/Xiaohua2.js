@@ -1,6 +1,6 @@
 /**
  * Created by xqf on 6/11/16.
- * 新闻头条
+ * 笑话大全
  */
 'use strict';
 
@@ -29,9 +29,9 @@ export default class Xiaohua2 extends Component {
     _parseData(){
         var tempArr=[];
         // alert(JSON.parse(this.props.contents).reason);
-        if("error"===JSON.parse(this.props.contents)){
+        if("error"===this.props.contents){
             alert('数据异常110');
-            return tempArr;
+            return;
         }
         if(0===JSON.parse(this.props.contents).error_code){
             // var temp=resultJson.result;

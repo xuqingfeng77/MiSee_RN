@@ -16,6 +16,7 @@ import HomeFragment from './js_modules/page/HomeFragment';
 import testPop from './js_modules/test/testPop';
 import testModal from './js_modules/test/testModal';
 import testCalendar from './js_modules/test/testCalendar';
+import ChengYCD from './js_modules/page/ChengYCD';
 export default class MeSee_RN extends Component {
   render() {
     return (

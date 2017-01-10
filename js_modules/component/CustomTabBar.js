@@ -1,5 +1,5 @@
 /**
- * Created by wangdi on 6/11/16.
+ * Created by xqf
  */
 const React = require('react');
 const ReactNative = require('react-native');
