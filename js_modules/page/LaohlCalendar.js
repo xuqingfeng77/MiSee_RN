@@ -52,7 +52,7 @@ export  default  class MyCalendar extends PageComponent {
                 <Calendar
                     ref='myCalendar'
                     date={_this.state.date} //必要值
-                    onDateChange={(date) => this._callback(date) }
+                    onDateChange={this._callback.bind(this)}
                     prevTitle='上月'//默认为Prev
                     nextTitle='下月'//默认为Next
                     busyDay={busyDays}

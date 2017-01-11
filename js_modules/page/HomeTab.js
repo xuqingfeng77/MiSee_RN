@@ -16,6 +16,7 @@ import Xiaohua from './Xiaohua';
 import Xiaohua2 from './Xiaohua2';
 import LaoHL from './LaoHL';
 import ChengYCD from './ChengYCD';
+var dateFormat = require('dateformat');
 
 export default class HomeTab extends Component {
     constructor(props) {
@@ -174,8 +175,9 @@ export default class HomeTab extends Component {
             var map = {"page": "1", "pagesize": "30", "time": timestamp.substr(0, 10)};
             NetUtil.get(NetURL.xiaohua_url, map, this._parseNetData.bind(this));
         } else if (tabTag === '老黄历') {
-
-            var map = {"date": "2017-01-07"};
+            var today = new Date();
+           var todayDate=dateFormat( new Date(today.getFullYear(), today.getMonth(), today.getDate()), 'yyyy-mm-dd')
+            var map = {"date": todayDate};
             NetUtil.get(NetURL.laohl_url, map, this._parseNetData.bind(this));
         } else if (tabTag === '成语词典') {
             // var map={"dtype":"json","word":"狐假虎威"};
